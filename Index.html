@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>¿Quieres ser mi San Valentín?</title>
+
+<style>
+body{
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1{
+    margin-top: 100px;
+    font-size: 40px;
+}
+
+button{
+    padding: 15px 30px;
+    font-size: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+}
+
+#si{
+    background-color: #4CAF50;
+    color: white;
+}
+
+#no{
+    background-color: #f44336;
+    color: white;
+    position: absolute;
+}
+
+.carta{
+    display: none;
+    margin-top: 40px;
+    font-size: 22px;
+    padding: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+
+<body>
+
+<h1 id="pregunta">¿Quieres ser mi San Valentín? ❤️</h1>
+
+<button id="si" onclick="aceptar()">Sí 💘</button>
+<button id="no" onmouseover="moverNo()">No 💔</button>
+
+<div class="carta" id="carta">
+    <h2>💌 Para ti...</h2>
+    <p>
+Hola mi pequitas, me gustaría empezar por decirte cuánto te amo.<br><br>
+
+Te amo mucho, demasiado, más de lo que yo puedo demostrar.<br><br>
+
+Eres una personita bastante fuerte, de la cuál estoy demasiado orgulloso, me gusta tu esfuerzo de cada día, sé que en ocasiones puedes tener rachitas, en esas que dices que no puedes hacerlo, pero yo sé que tú, puedes lograr todo, literal todo aquello que quieras hacer en un futuro, confío mucho en ti.<br><br>
+
+<b>Top 6 cosas que me encantan de ti:</b><br><br>
+
+1. Tú pelo <br>
+2. Tú tus ojitos <br>
+3. Tus mejillas <br>
+4. Tus labios <br>
+5. Tus cejas <br>
+6. TODO, ME ENCANTA TODO DE TI, cada parte, cada centímetro de ti me encanta, ante mis ojos eres perfecta, eres la realidad, de mi ficción 💗
+    </p>
+</div>
+
+<!-- 🎵 Música -->
+<audio id="musica" loop>
+  <source src="https://files.catbox.moe/scvhht.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+let tamañoSi = 20;
+
+function moverNo(){
+    let botonNo = document.getElementById("no");
+
+    let x = Math.random() * (window.innerWidth - 100);
+    let y = Math.random() * (window.innerHeight - 50);
+
+    botonNo.style.left = x + "px";
+    botonNo.style.top = y + "px";
+
+    tamañoSi += 5;
+    document.getElementById("si").style.fontSize = tamañoSi + "px";
+}
+
+function aceptar(){
+    document.getElementById("pregunta").style.display = "none";
+    document.getElementById("si").style.display = "none";
+    document.getElementById("no").style.display = "none";
+    document.body.style.overflow = "auto";
+    document.getElementById("carta").style.display = "block";
+
+    // 🔥 Aquí empieza la música cuando presione "Sí"
+    document.getElementById("musica").play();
+}
+</script>
+
+</body>
+</html>
